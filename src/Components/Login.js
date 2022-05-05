@@ -47,7 +47,7 @@ else{
   return (
     <body className="loginbody">
     <div className="central-box">
-      <h1>Welcome to Teacher Insight</h1>
+      <h1>Welcome to Crowe Detailing</h1>
       <h2 className="signintext">Log in below</h2>
       <form onSubmit={handleLogin}>
         <label> 

@@ -25,7 +25,7 @@ useEffect(() => {
           snapshot.forEach(
               function(ChildSnapshot){
 
-      if(ChildSnapshot.val().type=== "teacher"){
+      if(ChildSnapshot.val().type=== "admin"){
 
          teachHand(ChildSnapshot.val().full_name,ChildSnapshot.val().uid);
       }
@@ -39,8 +39,8 @@ useEffect(() => {
       <div>
 
         <StudentNav/>
-        <h1 className="teachersList">All Teachers</h1>
-        <input onChange={event => setSearchTerm(event.target.value)} className="searchbar" type="text" placeholder="Search teachers..."/>
+        <h1 className="teachersList">Choose desired worker from below</h1>
+        <input onChange={event => setSearchTerm(event.target.value)} className="searchbar" type="text" placeholder="Search..."/>
         <div>
           <ul>
 

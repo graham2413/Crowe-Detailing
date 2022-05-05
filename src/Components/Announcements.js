@@ -1,5 +1,5 @@
 import React, {useState,useEffect, useContext } from 'react';
-import TeacherNav from './TeachNav';
+import TeacherNav from './AdminNav';
 import { getDatabase, ref, child, get } from "firebase/database";
 import "../CSS/index.css";
 import { AuthContext } from "../Auth";

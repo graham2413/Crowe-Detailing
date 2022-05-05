@@ -1,4 +1,4 @@
-import TeachNav from './TeachNav';
+import AdminNav from './AdminNav';
 import React, { useState, useContext} from 'react';
 import "../CSS/index.css"
 import { AuthContext } from "../Auth";
@@ -56,15 +56,15 @@ function handleSubmit(e) {
     tempStr+= "5";
   }
 // add days to db
-  const dayRef = db.ref("Users/" + currentUser.uid + "/officeHoursInfo/daysToInclude");
+  const dayRef = db.ref("Users/" + currentUser.uid + "/availableHours/daysToInclude");
   const newDayRef = dayRef;
 
   // add timeslot to db
-const tsRef = db.ref("Users/" + currentUser.uid + "/officeHoursInfo/timeSlotLength");
+const tsRef = db.ref("Users/" + currentUser.uid + "/availableHours/timeSlotLength");
 const newTs = tsRef;
 
 //add start and end time to db
-const startandend = db.ref("Users/" + currentUser.uid + "/officeHoursInfo/startAndEndTimes");
+const startandend = db.ref("Users/" + currentUser.uid + "/availableHours/startAndEndTimes");
 const newstartandend = startandend;
 
 
@@ -91,7 +91,7 @@ const newstartandend = startandend;
 
   return (
     <div>
-      <TeachNav/> <br></br>
+      <AdminNav/> <br></br>
 <div className="formcont">
     <div className="anotherformdiv">
       <form onSubmit={handleSubmit}>
@@ -105,7 +105,7 @@ const newstartandend = startandend;
     <input className="inputfix" required type="text" name="endTimeMin" placeholder="End Time Minute" onChange={(e)=>setEndTimeMin(e.target.value)}/>
       </div>
       <div className="timecontainer">
-    <input className="inputfix" required type="text" name="timeslot" placeholder="Time Slot Length" onChange={(e)=>setTimeSlot(e.target.value)}/> <br></br>
+    <input className="newinputfix" required type="text" name="timeslot" placeholder="Appointment Length (in minutes)" onChange={(e)=>setTimeSlot(e.target.value)}/> <br></br>
     </div>
 
     <div className="checkcontainer" required>

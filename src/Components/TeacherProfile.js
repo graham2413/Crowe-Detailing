@@ -51,7 +51,7 @@ useEffect(() => {
     if (snapshot.exists()) {
       setEmail(snapshot.val());
     } else {
-      console.log("No announcement");
+      console.log("No teacher email found");
     }
   }).catch((error) => {
     console.error(error);
@@ -61,7 +61,6 @@ useEffect(() => {
 
 function announFixer() {
   if(announcement.length===0){
-    console.log("blob");
     return <div className="announcetext">No announcements</div>
   }
   else{

@@ -27,7 +27,7 @@ const Register = ({ history }) => {
           var userData = {
             full_name: full_name.value,
             email: email.value,
-            type: "student"
+            type: "regular"
         }         
             
           database_ref.child('Users/' + user.uid).set(userData)  
@@ -41,18 +41,18 @@ const Register = ({ history }) => {
     <body className="loginbody">
     <div className="central-box">
       <h1>Sign up</h1>
-      <h2 className="signuptext">Students signup below, Teachers and TA's must email for account creation - cgnorri2@go.olemiss.edu</h2>
+      {/* <h2 className="signuptext">Students signup below, Teachers and TA's must email for account creation - cgnorri2@go.olemiss.edu</h2> */}
       <form onSubmit={handleSignUp}>
       <label>
-          <input name="full_name" type="text" placeholder="Full name" />
+          <input className="loginp" name="full_name" type="text" placeholder="Full name" />
         </label>
         <br></br>    <br></br>
         <label>
-          <input name="email" type="email" placeholder="email@email.com" />
+          <input className="loginp" name="email" type="email" placeholder="email@email.com" />
         </label>
         <br></br>    <br></br>
         <label>
-          <input name="password" type="password" placeholder="password123" />
+          <input className="loginp" name="password" type="password" placeholder="password123" />
         </label>
         <br></br>
         <button className="signintopage-registerintopage-buttons" type="submit">Sign Up</button>

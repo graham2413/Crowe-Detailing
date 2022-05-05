@@ -145,7 +145,6 @@ text-align: center;
     .checkcontainer {
       width: 80%;
     }
-
   }
   .teacherthing{
     margin-top: 25px;
@@ -230,4 +229,9 @@ text-align: center;
     .announcetext,.announcer{
       width: 80%;
     }
+  }
+
+  .newinputfix, .inputfix{
+    width: 85%;
+    text-align: center;
   }

@@ -1,4 +1,4 @@
-import TeachNav from './TeachNav';
+import AdminNav from './AdminNav';
 import StudentNav from './StudentNav';
 import { getDatabase, ref, child, get } from "firebase/database";
 import React, { useState,useEffect, useContext } from 'react';
@@ -172,7 +172,7 @@ function Appointments() {
     <div>
         {userType === 'teacher'? (
           <div>
-                <TeachNav/>
+                <AdminNav/>
                 <br></br>
                 <h1 className="teachersList">My Appointments</h1>
                 {teacherAppointments.map((element,index)=>{

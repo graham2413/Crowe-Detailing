@@ -109,7 +109,7 @@ useEffect(() => {
 }, [])
 
   // determines which days to render available
-  get(child(dbRef, `Users/` + handle + `/officeHoursInfo/daysToInclude`)).then((snapshot) => {
+  get(child(dbRef, `Users/` + handle + `/availableHours/daysToInclude`)).then((snapshot) => {
     if (snapshot.exists()) {
       var tryMe = snapshot.val().dayString;
       setDayStrFinal(tryMe);
@@ -123,7 +123,7 @@ useEffect(() => {
 
 
   // determines which days to render available
-  get(child(dbRef, `Users/` + handle + `/officeHoursInfo/timeSlotLength`)).then((snapshot) => {
+  get(child(dbRef, `Users/` + handle + `/availableHours/timeSlotLength`)).then((snapshot) => {
     if (snapshot.exists()) {
     setTimeSlot(snapshot.val().length);
   
@@ -137,7 +137,7 @@ useEffect(() => {
 
     
   // determines which hours to render available
-  get(child(dbRef, `Users/` + handle + `/officeHoursInfo/startAndEndTimes`)).then((snapshot) => {
+  get(child(dbRef, `Users/` + handle + `/availableHours/startAndEndTimes`)).then((snapshot) => {
     if (snapshot.exists()) {
       setEndHour(snapshot.val().endHour);
       setEndMin(snapshot.val().endMin);
@@ -261,7 +261,7 @@ const handleSubmit = (event) => {
     <StudentNav/>
     <div className="App">
       {warning!==""?(
-     <div className="surrrrrpls">   <h1 className="warningcss">Warning, you already have an appointment booked for: {warning} , if you create a new appointment your previous slot will be deleted</h1></div>
+     <div className="surrrrrpls">   <h1 className="warningcsss">Warning, you already have an appointment booked for: {warning} , if you create a new appointment your previous appointment will be deleted</h1></div>
       ):(<div className="surrrrrpls"> <h1 className="warningcss">Click on the input field below to get started</h1></div>)}
         <form onSubmit={handleSubmit}>
         <div className="ohContainer">

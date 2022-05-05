@@ -1,11 +1,11 @@
-import Nav from "./TeachNav"
+import Nav from "./AdminNav"
 import "../CSS/index.css"
 import { useHistory, Link } from 'react-router-dom';
 import firebase from "../config";
 import { getDatabase, ref, child, get } from "firebase/database";
 import React, { useState,useEffect,useContext } from 'react';
 import { AuthContext } from "../Auth";
-import TeachNav from "./TeachNav";
+import AdminNav from "./AdminNav";
 import StudentNav from "./StudentNav";
 
 
@@ -20,8 +20,6 @@ function Home() {
   const [userType,setUserType]=useState(null);
   const [canc,setCanc]=useState([null]);
   
-
-
   const handleCanc=(val)=>{
  
     setCanc(state => [...state, [val]
@@ -103,13 +101,13 @@ function Home() {
   return (
 
     <div>
-        {userType === 'teacher'? (
+        {userType === 'admin'? (
         <div>
-          <TeachNav />
+          <AdminNav />
           <br></br>
-        <div className="welcBox"> <h1 className="welcomeCSS">Welcome to Teacher Home, {teacherName}</h1> </div>
+        <div className="welcBox"> <h1 className="welcomeCSS">Welcome to Admin Home, {teacherName}</h1> </div>
           <div className="homebody">
-        <div>  <Link to={`/officeHoursInput`} className="appointmentLB">Change/Set your Office Hours times here</Link> </div>      </div> <br></br><br></br>
+        <div>  <Link to={`/officeHoursInput`} className="appointmentLB">Change/Set your Available times here</Link> </div>      </div> <br></br><br></br>
           <Link to={`/inputAnnouncements`} className="appointmentLB">Change announcements here</Link>
 
         
@@ -120,16 +118,16 @@ function Home() {
           <div>
           <StudentNav />
           <br></br>
-          <h1 className="welcomeCSS">Welcome to Student Home, {teacherName}</h1>
+          <h1 className="welcomeCSS">Welcome to Crowe Detailing, {teacherName}</h1>
           <div className="homebody">
-          <Link to={`/teachers`} className="appointmentLB">Schedule Office Hours Appointment</Link>
+          <Link to={`/teachers`} className="appointmentLB">Schedule Appointment</Link>
             <br></br>  <br></br>
             
             
             
             </div>
             <div className="cancAppCont">
-           <p>  If a Teacher/TA cancelled an appointment, it is below</p>
+           <p>  If an appointment has been cancelled, it is below</p>
             
             <ol>
             {cancRender()}
