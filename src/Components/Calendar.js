@@ -1,7 +1,7 @@
 import React, {useState,useContext,useEffect} from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
-import StudentNav from './StudentNav';
+import RegularNav from './RegularNav';
 import '../CSS/calendar.css'
 import firebase from "../config";
 import { useHistory, useParams } from 'react-router-dom';
@@ -258,7 +258,7 @@ const handleSubmit = (event) => {
 
   return (
     <div>
-    <StudentNav/>
+    <RegularNav/>
     <div className="App">
       {warning!==""?(
      <div className="surrrrrpls">   <h1 className="warningcsss">Warning, you already have an appointment booked for: {warning} , if you create a new appointment your previous appointment will be deleted</h1></div>

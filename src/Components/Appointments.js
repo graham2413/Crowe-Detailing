@@ -1,5 +1,5 @@
 import AdminNav from './AdminNav';
-import StudentNav from './StudentNav';
+import RegularNav from './RegularNav';
 import { getDatabase, ref, child, get } from "firebase/database";
 import React, { useState,useEffect, useContext } from 'react';
 import "../CSS/index.css";
@@ -181,7 +181,7 @@ function Appointments() {
           </div>
         ) : (
           <div>
-                <StudentNav/>
+                <RegularNav/>
                 <br></br>
                 <h1 className="teachersList">My Appointments</h1>
                {studentAppointments.map((element,index)=>{

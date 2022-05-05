@@ -1,12 +1,12 @@
 import React, {useState,useEffect } from 'react';
-import StudentNav from './StudentNav';
+import RegularNav from './RegularNav';
 import { getDatabase, ref, child, get } from "firebase/database";
 import { Link } from "react-router-dom";
 import "../CSS/index.css";
 import firebase from "../config"
 
 
-function Teachers() {
+function Workers() {
 
   const [teachers, setTeachers]=useState([]);
   const [searchTerm, setSearchTerm]=useState('');
@@ -38,7 +38,7 @@ useEffect(() => {
 
       <div>
 
-        <StudentNav/>
+        <RegularNav/>
         <h1 className="teachersList">Choose desired worker from below</h1>
         <input onChange={event => setSearchTerm(event.target.value)} className="searchbar" type="text" placeholder="Search..."/>
         <div>
@@ -54,7 +54,7 @@ useEffect(() => {
          }
        }).map((value, index) => {
 
-        return <Link to={`/teacherProfile/${value[1]}`} className="eachTeach" key={index}>{value[0]}</Link>
+        return <Link to={`/WorkerProfile/${value[1]}`} className="eachTeach" key={index}>{value[0]}</Link>
         })}
       </ul>
       </div>
@@ -63,4 +63,4 @@ useEffect(() => {
 
   );
 };
-export default Teachers;
+export default Workers;

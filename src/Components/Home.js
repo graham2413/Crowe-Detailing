@@ -6,7 +6,7 @@ import { getDatabase, ref, child, get } from "firebase/database";
 import React, { useState,useEffect,useContext } from 'react';
 import { AuthContext } from "../Auth";
 import AdminNav from "./AdminNav";
-import StudentNav from "./StudentNav";
+import RegularNav from "./RegularNav";
 
 
 function Home() {
@@ -116,11 +116,11 @@ function Home() {
         </div>
         ) : (
           <div>
-          <StudentNav />
+          <RegularNav />
           <br></br>
           <h1 className="welcomeCSS">Welcome to Crowe Detailing, {teacherName}</h1>
           <div className="homebody">
-          <Link to={`/teachers`} className="appointmentLB">Schedule Appointment</Link>
+          <Link to={`/workers`} className="appointmentLB">Schedule Appointment</Link>
             <br></br>  <br></br>
             
             

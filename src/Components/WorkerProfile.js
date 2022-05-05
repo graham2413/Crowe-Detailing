@@ -1,14 +1,12 @@
-import React, {useContext, useState,useEffect } from 'react';
-import StudentNav from './StudentNav';
+import React, {useState,useEffect } from 'react';
+import RegularNav from './RegularNav';
 import {useParams,Link} from "react-router-dom"
 import { getDatabase, ref, child, get } from "firebase/database";
-import { AuthContext } from "../Auth";
-import { useHistory } from 'react-router-dom';
 import '../CSS/index.css'
 
 ///Purpose is for students to be able to see all teachers to choose from
 
-function TeacherProfile() {
+function WorkerProfile() {
 
 const [user,setUser] =useState(null);
 const [announcement,setAnnouncement] =useState("");
@@ -75,7 +73,7 @@ function announFixer() {
 
       <div>
       
-        <StudentNav/>
+        <RegularNav/>
 
        
         <h1 className="teacherthing">{user}'s Profile</h1> 
@@ -92,4 +90,4 @@ function announFixer() {
 
   );
 };
-export default TeacherProfile;
+export default WorkerProfile;

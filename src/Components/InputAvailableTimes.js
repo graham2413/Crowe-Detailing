@@ -5,7 +5,7 @@ import { AuthContext } from "../Auth";
 import { useHistory } from 'react-router-dom';
 import firebase from "../config";
 
-export default function OfficeHourInput() {
+export default function InputAvailableTimes() {
 
 
   const { currentUser } = useContext(AuthContext);

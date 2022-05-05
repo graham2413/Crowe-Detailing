@@ -41,7 +41,7 @@ const Register = ({ history }) => {
     <body className="loginbody">
     <div className="central-box">
       <h1>Sign up</h1>
-      {/* <h2 className="signuptext">Students signup below, Teachers and TA's must email for account creation - cgnorri2@go.olemiss.edu</h2> */}
+      {/* <h2 className="signuptext">Students signup below, Workers and TA's must email for account creation - cgnorri2@go.olemiss.edu</h2> */}
       <form onSubmit={handleSignUp}>
       <label>
           <input className="loginp" name="full_name" type="text" placeholder="Full name" />
