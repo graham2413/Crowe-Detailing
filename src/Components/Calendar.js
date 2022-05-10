@@ -259,8 +259,10 @@ const handleSubmit = (event) => {
   const [value, setValue] = useState();
 
   const divStyle = {
-    width: '50%'
-  };
+    width: '50%',
+    fontSize: '14px',
+    height: '120px'
+  }
 
   return (
     <div>
@@ -307,7 +309,7 @@ const handleSubmit = (event) => {
       </div>
 
       <div className="reasoninput">
-      <input className="centerreason" style={divStyle} required onChange={(e) => { setReason(e.target.value)}} type="text" placeholder="Reason for appointment:"/>
+      <textarea className="centerreason" style={divStyle} required onChange={(e) => { setReason(e.target.value)}}  placeholder="Reason for appointment:"/>
       </div>
 
        <div className="buttonsurround">

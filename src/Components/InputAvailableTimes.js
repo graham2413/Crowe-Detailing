@@ -105,7 +105,7 @@ const newstartandend = startandend;
     <input className="inputfix" required type="text" name="endTimeMin" placeholder="End Time Minute" onChange={(e)=>setEndTimeMin(e.target.value)}/>
       </div>
       <div className="timecontainer">
-    <input className="newinputfix" required type="text" name="timeslot" placeholder="Appointment Length (in minutes)" onChange={(e)=>setTimeSlot(e.target.value)}/> <br></br>
+    <input className="newinputfix" required type="text" name="timeslot" placeholder="App. Length (in minutes)" onChange={(e)=>setTimeSlot(e.target.value)}/> <br></br>
     </div>
 
     <div className="checkcontainer" required>

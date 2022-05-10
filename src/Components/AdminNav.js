@@ -15,7 +15,7 @@ return(
       <ReactBootStrap.Nav className="me-auto">
         <ReactBootStrap.Nav.Link href="/">Home</ReactBootStrap.Nav.Link>
         <ReactBootStrap.Nav.Link href="/appointments">My Appointments</ReactBootStrap.Nav.Link>
-        <ReactBootStrap.Nav.Link href="/officeHoursInput">Change Available Times</ReactBootStrap.Nav.Link>
+        <ReactBootStrap.Nav.Link href="/inputAvailability">Change Available Times</ReactBootStrap.Nav.Link>
         <ReactBootStrap.Nav.Link href="/inputAnnouncements">Change Announcements</ReactBootStrap.Nav.Link>
         <button onClick={() => firebase.auth().signOut().catch((err) => console.log(err)) &&console.log("logged out")}>Sign Out</button>
       </ReactBootStrap.Nav>
