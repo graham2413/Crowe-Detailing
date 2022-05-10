@@ -226,6 +226,7 @@ const handleSubmit = (event) => {
        const newTimeref = timeRef;
       newTimeref.set({
         booking:booking,
+        reason: reason
       })}
       catch (error) {
         alert(error);
