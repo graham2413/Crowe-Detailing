@@ -19,16 +19,17 @@ function Appointments() {
   const [teacherAppointments, setTeacherAppointments]=useState([]);
 
  
-  const handleIt=(here,there)=>{
-    let temp = [...studentAppointments];
-    temp.push({
-      teachName:here,
-      appointmentDate:there
-    });
+  const handleIt=(here,there,reasoning)=>{
+    // let temp = [...studentAppointments];
+    // temp.push({
+    //   teachName:here,
+    //   appointmentDate:there
+    // });
     
     setStudentAppointments(state => [...state, {
       teachName:here,
-      appointmentDate:there
+      appointmentDate:there,
+      reason:reasoning
     }]);
     // console.log(studentAppointments);
   }
@@ -77,6 +78,7 @@ function Appointments() {
             // console.log(teachersID);
       
             var bookingTimeForCertainTeach = childSnapshot.val().booking;
+            var reasonForBooking = childSnapshot.val().reason;
             //  console.log(bookingTimeForCertainTeach);
 
             var tryer = firebase.database().ref("Users/" + teachersID).orderByKey();
@@ -84,7 +86,7 @@ function Appointments() {
             .then(function(snapshot) {
 
                 // console.log(snapshot.val().full_name);
-                  handleIt(snapshot.val().full_name,bookingTimeForCertainTeach)
+                  handleIt(snapshot.val().full_name,bookingTimeForCertainTeach,reasonForBooking)
               })
 
         });
@@ -185,7 +187,7 @@ function Appointments() {
                 <br></br>
                 <h1 className="teachersList">My Appointments</h1>
                {studentAppointments.map((element,index)=>{
-               return <div className="AppointmentBlock"><h2 className="apps">{index+1}. {element.teachName}</h2>   <h3 className="appsdate">{element.appointmentDate}</h3></div>
+               return <div className="AppointmentBlock"><h2 className="apps">{index+1}. {element.teachName}</h2>   <h3 className="appsdate"><b>When: </b>{element.appointmentDate}</h3> <h3 className="appsdate"><b>Why: </b>{element.reason}</h3></div>
                        })}
                      
           </div>
