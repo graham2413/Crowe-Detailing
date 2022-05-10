@@ -258,6 +258,10 @@ const handleSubmit = (event) => {
 //value of selected date
   const [value, setValue] = useState();
 
+  const divStyle = {
+    width: '50%'
+  };
+
   return (
     <div>
     <RegularNav/>
@@ -267,7 +271,7 @@ const handleSubmit = (event) => {
       ):(<div className="surrrrrpls"> <h1 className="warningcss">Click on the input field below to get started</h1></div>)}
         <form onSubmit={handleSubmit}>
         <div className="ohContainer">
-
+  
     <DatePicker
       filterDate={isWeekday}
       minTime={new Date(new Date().setHours(startHour, startMin))}
@@ -288,7 +292,7 @@ const handleSubmit = (event) => {
       showTimeSelect
       dateFormat="M/d/Y HH:mm"
       timeFormat="HH:mm"
-      placeholderText="Choose an available time slot"
+      placeholderText="Choose an available time slot:"
       withPortal
       minDate= {new Date()} 
       onChange={(e) => {
@@ -296,12 +300,14 @@ const handleSubmit = (event) => {
       }}
       selected={value}
       required
+      className="datepickah"
     />
+
 
       </div>
 
       <div className="reasoninput">
-      <input  required onChange={(e) => { setReason(e.target.value)}} type="text" placeholder="Reason for appointment:"/>
+      <input className="centerreason" style={divStyle} required onChange={(e) => { setReason(e.target.value)}} type="text" placeholder="Reason for appointment:"/>
       </div>
 
        <div className="buttonsurround">

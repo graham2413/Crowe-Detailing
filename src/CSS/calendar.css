@@ -5,10 +5,8 @@
 }
 
 .ohContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 35%;
+    margin-top: 25%;
+    text-align: center;
 }
 .bookbutton{
     color: green;
@@ -38,4 +36,12 @@ margin-top: 20px;
     justify-content: center;
     align-items: center;
     margin-top: 2%;
+
   }
+  .datepickah {
+    text-align: center;
+    width: 50%;
+}
+.centerreason{
+  text-align: center;
+}
