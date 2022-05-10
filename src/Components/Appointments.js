@@ -19,13 +19,7 @@ function Appointments() {
   const [teacherAppointments, setTeacherAppointments]=useState([]);
 
  
-  const handleIt=(here,there,reasoning)=>{
-    // let temp = [...studentAppointments];
-    // temp.push({
-    //   teachName:here,
-    //   appointmentDate:there
-    // });
-    
+  const handleIt=(here,there,reasoning)=>{    
     setStudentAppointments(state => [...state, {
       teachName:here,
       appointmentDate:there,
@@ -34,21 +28,14 @@ function Appointments() {
     // console.log(studentAppointments);
   }
 
-  const handleTeach=(here,there,studentUID)=>{
-    let temp = [...teacherAppointments];
-    temp.push({
-      studentName:here,
-      appointmentDate:there,
-      studentIDNUM: studentUID
-    });
-
-    
+  const handleTeach=(here,there,studentUID,reason)=>{
     setTeacherAppointments(state => [...state, {
       studentName:here,
       appointmentDate:there,
-      studentIDNUM: studentUID
+      studentIDNUM: studentUID,
+      reason:reason
     }]);
-    // console.log(teacherAppointments);
+
   }
 
 
@@ -66,7 +53,7 @@ function Appointments() {
     }, [])
 
 
-    // set student appointments
+    // set customer appointments
     useEffect(() => {
       
       var query = firebase.database().ref("Users/" + currentUser.uid + "/bookedTimes").orderByKey();
@@ -94,7 +81,7 @@ function Appointments() {
 
     }, [])
 
-        // set teacher appointments
+        // set worker appointments
         useEffect(() => {
       
           var query = firebase.database().ref("Users/" + currentUser.uid + "/bookedTimes").orderByKey();
@@ -106,7 +93,7 @@ function Appointments() {
                 // console.log(teachersID);
           
                 var bookingTimeForCertainTeach = childSnapshot.val().booking;
-                  // console.log(bookingTimeForCertainTeach);
+                var reasonForBook = childSnapshot.val().reason;
     
                 var tryer = firebase.database().ref("Users/" + studentID).orderByKey();
                 tryer.once("value")
@@ -114,7 +101,7 @@ function Appointments() {
     
                     //  console.log(snapshot.val().full_name);
 
-                    handleTeach(snapshot.val().full_name,bookingTimeForCertainTeach,studentID)
+                    handleTeach(snapshot.val().full_name,bookingTimeForCertainTeach,studentID,reasonForBook)
                   })
             });
           });
@@ -169,16 +156,17 @@ function Appointments() {
           //call below to refresh page after deletion
           window.location.reload(false);
         }
+        
 
   return(
     <div>
-        {userType === 'teacher'? (
+        {userType === 'admin'? (
           <div>
                 <AdminNav/>
                 <br></br>
                 <h1 className="teachersList">My Appointments</h1>
                 {teacherAppointments.map((element,index)=>{
-               return <div className="AppointmentBlock"><h2 className="apps">{index+1}. {element.studentName}</h2>   <h3 className="appsdate">{element.appointmentDate}</h3>  <button className="deleteappButton" onClick={() => deleteForTeachers(element.studentIDNUM,element.studentName,element.appointmentDate)}>Cancel Appointment</button><button className="deleteappButton" onClick={() => completeApp(element.studentIDNUM,element.studentName,element.appointmentDate)}>Complete Appointment</button> </div>
+               return <div className="AppointmentBlock"><h2 className="apps">{index+1}. {element.studentName}</h2> <h3 className="appsdate"><b>When: </b>{element.appointmentDate}</h3>  <h3 className="appsdate"><b>Why: </b>{element.reason}</h3><button className="deleteappButton" onClick={() => deleteForTeachers(element.studentIDNUM,element.studentName,element.appointmentDate)}>Cancel Appointment</button><button className="deleteappButton" onClick={() => completeApp(element.studentIDNUM,element.studentName,element.appointmentDate)}>Complete Appointment</button> </div>
                        })}
           </div>
         ) : (
