@@ -14,6 +14,8 @@ function Calendar() {
 
   const[warning, setWarning] = useState("");
 
+  const[reason, setReason] = useState("");
+
   const[dayStrFinal, setDayStrFinal] = useState("");
 
   const[userIDUnique, setUserIDUnique] = useState("");
@@ -96,7 +98,7 @@ useEffect(() => {
     if (snapshot.exists()) {
       //make below show up on page as an h1 maybe
       setWarning(snapshot.val().booking);
-       console.log("Warning, you already have an appointment booked for: "+snapshot.val().booking + " , if you create a new appointment your previous slot will be deleted");
+       console.log("Warning, you already have an appointment booked for: "+snapshot.val().booking + ", if you create a new appointment your previous slot will be deleted");
 
     } else {
       console.log("No booking in db for this student");
@@ -223,7 +225,7 @@ const handleSubmit = (event) => {
      try{
        const newTimeref = timeRef;
       newTimeref.set({
-        booking:booking
+        booking:booking,
       })}
       catch (error) {
         alert(error);
@@ -232,8 +234,8 @@ const handleSubmit = (event) => {
       try{
       
     var postData = {
-      booking: booking
- 
+      booking: booking,
+      reason:reason
     };
 
     var newPostKey = db.ref("Users/" + handle).child(currentUser.uid).key;
@@ -254,14 +256,14 @@ const handleSubmit = (event) => {
   }
 };
 //value of selected date
-  const [value, setValue] = useState(new Date());
+  const [value, setValue] = useState();
 
   return (
     <div>
     <RegularNav/>
     <div className="App">
       {warning!==""?(
-     <div className="surrrrrpls">   <h1 className="warningcsss">Warning, you already have an appointment booked for: {warning} , if you create a new appointment your previous appointment will be deleted</h1></div>
+     <div className="surrrrrpls">   <h1 className="warningcsss">Warning, you already have an appointment booked for: {warning}, if you create a new appointment your previous appointment will be deleted</h1></div>
       ):(<div className="surrrrrpls"> <h1 className="warningcss">Click on the input field below to get started</h1></div>)}
         <form onSubmit={handleSubmit}>
         <div className="ohContainer">
@@ -293,8 +295,13 @@ const handleSubmit = (event) => {
         setValue(new Date(e));
       }}
       selected={value}
+      required
     />
 
+      </div>
+
+      <div className="reasoninput">
+      <input  required onChange={(e) => { setReason(e.target.value)}} type="text" placeholder="Reason for appointment:"/>
       </div>
 
        <div className="buttonsurround">

@@ -33,3 +33,9 @@ margin-top: 20px;
     font-size: 15px;
     margin-bottom: 0px;
   }
+  .reasoninput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+  }

@@ -83,7 +83,7 @@ function announFixer() {
 
       <div className="announcer"> <u><b>Contact:</b></u> {email}</div>
         <div className="homebody">
-        <Link to={`/officeHours/${handle}`} className="appointmentLB">Schedule Appointment with {user}</Link>
+        <Link to={`/schedule-appointment/${handle}`} className="appointmentLB">Schedule Appointment with {user}</Link>
 
         </div>
       </div>

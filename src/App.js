@@ -23,9 +23,9 @@ function App() {
           <PrivateRoute exact path="/" component={Home}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/register" component={Register}/>
-          <PrivateRoute exact path="/officeHours/:handle" component={Calendar}/>
+          <PrivateRoute exact path="/schedule-appointment/:handle" component={Calendar}/>
           <PrivateRoute exact path="/workers" component={Workers}/>
-          <PrivateRoute exact path="/officeHoursInput" component={OfficeHoursInput}/>
+          <PrivateRoute exact path="/inputAvailability" component={OfficeHoursInput}/>
           <PrivateRoute exact path="/WorkerProfile/:handle" component={WorkerProfile}/>
           <PrivateRoute exact path="/appointments" component={Appointments}/>
           <PrivateRoute exact path="/inputAnnouncements" component={Announcements}/>
