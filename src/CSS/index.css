@@ -236,12 +236,25 @@ text-align: center;
     text-align: center;
   }
   .pricingBox{
-    margin-top: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
   .listPrice{
     text-align: left;
     margin-top: 5px;
+    margin-bottom: 20px;
   }
   .statementdiv{
     margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .pricingstuff{
+    text-align: center;
+  }
+  .listOfStuff{
+    margin-top: 5%;
+  }
+  .spacingfix{
+    margin-left: 3px;
+    margin-top: 5%;
   }

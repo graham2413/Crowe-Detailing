@@ -121,6 +121,7 @@ function Home() {
           <div className="welcomeCSS">
             <h1>Welcome to Crowe Detailing, {teacherName}</h1>
        <div className="statementdiv">     We are a student owned and operated auto-detailing company in Oxford, MS. Our mission is to transform your vehicle to your likings using safe techniques and industry-leading products. Book your appointment today!</div>
+            <a href="https://instagram.com/crowe.detailing?igshid=YmMyMTA2M2Y="> Follow us on instagram!</a>
             </div>
           
           <div className="homebody">
