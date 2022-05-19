@@ -250,6 +250,7 @@ const handleSubmit = (event) => {
        }  
 
     alert("Confirmed booking for: " + value);
+    alert("Address for appointment: ")
     routeChangeOff();
   }
   catch (error) {

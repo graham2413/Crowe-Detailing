@@ -235,3 +235,13 @@ text-align: center;
     width: 85%;
     text-align: center;
   }
+  .pricingBox{
+    margin-top: 10%;
+  }
+  .listPrice{
+    text-align: left;
+    margin-top: 5px;
+  }
+  .statementdiv{
+    margin-top: 15px;
+  }

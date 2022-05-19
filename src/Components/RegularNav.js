@@ -18,6 +18,7 @@ return(
         <ReactBootStrap.Nav.Link href="/">Home</ReactBootStrap.Nav.Link>
         <ReactBootStrap.Nav.Link href="/appointments">My Appointments</ReactBootStrap.Nav.Link>
         <ReactBootStrap.Nav.Link href="/workers">Book Appointment</ReactBootStrap.Nav.Link>
+        <ReactBootStrap.Nav.Link href="/pricing">Price Estimates</ReactBootStrap.Nav.Link>
         <button onClick={() => firebase.auth().signOut() && window.location.replace("/login")}>Sign Out</button>
       </ReactBootStrap.Nav>
     </ReactBootStrap.Navbar.Collapse>
