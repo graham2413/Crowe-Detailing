@@ -45,3 +45,9 @@ margin-top: 20px;
 .centerreason{
   text-align: center;
 }
+.vehictype{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+}

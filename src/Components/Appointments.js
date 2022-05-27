@@ -19,21 +19,23 @@ function Appointments() {
   const [teacherAppointments, setTeacherAppointments]=useState([]);
 
  
-  const handleIt=(here,there,reasoning)=>{    
+  const handleIt=(here,there,reasoning,vehicType)=>{    
     setStudentAppointments(state => [...state, {
       teachName:here,
       appointmentDate:there,
-      reason:reasoning
+      reason:reasoning,
+      vehicType: vehicType
     }]);
     // console.log(studentAppointments);
   }
 
-  const handleTeach=(here,there,studentUID,reason)=>{
+  const handleTeach=(here,there,studentUID,reason,vehicType)=>{
     setTeacherAppointments(state => [...state, {
       studentName:here,
       appointmentDate:there,
       studentIDNUM: studentUID,
-      reason:reason
+      reason:reason,
+      vehicType:vehicType
     }]);
 
   }
@@ -66,6 +68,7 @@ function Appointments() {
       
             var bookingTimeForCertainTeach = childSnapshot.val().booking;
             var reasonForBooking = childSnapshot.val().reason;
+            var vehicType = childSnapshot.val().vehicType;
             //  console.log(bookingTimeForCertainTeach);
 
             var tryer = firebase.database().ref("Users/" + teachersID).orderByKey();
@@ -73,7 +76,7 @@ function Appointments() {
             .then(function(snapshot) {
 
                 // console.log(snapshot.val().full_name);
-                  handleIt(snapshot.val().full_name,bookingTimeForCertainTeach,reasonForBooking)
+                  handleIt(snapshot.val().full_name,bookingTimeForCertainTeach,reasonForBooking,vehicType)
               })
 
         });
@@ -94,6 +97,8 @@ function Appointments() {
           
                 var bookingTimeForCertainTeach = childSnapshot.val().booking;
                 var reasonForBook = childSnapshot.val().reason;
+                var vehicType = childSnapshot.val().vehicType;
+            
     
                 var tryer = firebase.database().ref("Users/" + studentID).orderByKey();
                 tryer.once("value")
@@ -101,7 +106,7 @@ function Appointments() {
     
                     //  console.log(snapshot.val().full_name);
 
-                    handleTeach(snapshot.val().full_name,bookingTimeForCertainTeach,studentID,reasonForBook)
+                    handleTeach(snapshot.val().full_name,bookingTimeForCertainTeach,studentID,reasonForBook,vehicType)
                   })
             });
           });
@@ -166,7 +171,7 @@ function Appointments() {
                 <br></br>
                 <h1 className="teachersList">My Appointments</h1>
                 {teacherAppointments.map((element,index)=>{
-               return <div className="AppointmentBlock"><h2 className="apps">{index+1}. {element.studentName}</h2> <h3 className="appsdate"><b>When: </b>{element.appointmentDate}</h3>  <h3 className="appsdate"><b>Why: </b>{element.reason}</h3><button className="deleteappButton" onClick={() => deleteForTeachers(element.studentIDNUM,element.studentName,element.appointmentDate)}>Cancel Appointment</button><button className="deleteappButton" onClick={() => completeApp(element.studentIDNUM,element.studentName,element.appointmentDate)}>Complete Appointment</button> </div>
+               return <div className="AppointmentBlock"><h2 className="apps">{index+1}. {element.studentName}</h2> <h3 className="appsdate"><b>When: </b>{element.appointmentDate}</h3>  <h3 className="appsdate"><b>Why: </b>{element.reason}</h3><h3 className="appsdate"><b>Vehicle Type: </b>{element.vehicType}</h3><button className="deleteappButton" onClick={() => deleteForTeachers(element.studentIDNUM,element.studentName,element.appointmentDate)}>Cancel Appointment</button><button className="deleteappButton" onClick={() => completeApp(element.studentIDNUM,element.studentName,element.appointmentDate)}>Complete Appointment</button> </div>
                        })}
           </div>
         ) : (
@@ -175,7 +180,7 @@ function Appointments() {
                 <br></br>
                 <h1 className="teachersList">My Appointments</h1>
                {studentAppointments.map((element,index)=>{
-               return <div className="AppointmentBlock"><h2 className="apps">{index+1}. {element.teachName}</h2>   <h3 className="appsdate"><b>When: </b>{element.appointmentDate}</h3> <h3 className="appsdate"><b>Why: </b>{element.reason}</h3></div>
+               return <div className="AppointmentBlock"><h2 className="apps">{index+1}. {element.teachName}</h2>   <h3 className="appsdate"><b>When: </b>{element.appointmentDate}</h3> <h3 className="appsdate"><b>Why: </b>{element.reason}</h3><h3 className="appsdate"><b>Vehicle Type: </b>{element.vehicType}</h3></div>
                        })}
                      
           </div>

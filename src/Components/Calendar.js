@@ -15,6 +15,7 @@ function Calendar() {
   const[warning, setWarning] = useState("");
 
   const[reason, setReason] = useState("");
+  const[vehictype, setVehic] = useState("");
 
   const[dayStrFinal, setDayStrFinal] = useState("");
 
@@ -137,7 +138,6 @@ useEffect(() => {
   });
 
 
-    
   // determines which hours to render available
   get(child(dbRef, `Users/` + handle + `/availableHours/startAndEndTimes`)).then((snapshot) => {
     if (snapshot.exists()) {
@@ -154,10 +154,6 @@ useEffect(() => {
   }).catch((error) => {
     console.error(error);
   });
-
-
-
-
 
     const history = useHistory();
     
@@ -226,6 +222,7 @@ const handleSubmit = (event) => {
        const newTimeref = timeRef;
       newTimeref.set({
         booking:booking,
+        vehicType: vehictype,
         reason: reason
       })}
       catch (error) {
@@ -236,7 +233,8 @@ const handleSubmit = (event) => {
       
     var postData = {
       booking: booking,
-      reason:reason
+      reason:reason,
+      vehicType: vehictype,
     };
 
     var newPostKey = db.ref("Users/" + handle).child(currentUser.uid).key;
@@ -265,6 +263,12 @@ const handleSubmit = (event) => {
     fontSize: '14px',
     height: '120px'
   }
+  const divStyle2 = {
+    width: '50%',
+    fontSize: '14px',
+    height: '50px'
+  }
+
 
   return (
     <div>
@@ -310,8 +314,12 @@ const handleSubmit = (event) => {
 
       </div>
 
+      <div className="vehictype">
+      <textarea className="centerreason" style={divStyle2} required onChange={(e) => { setVehic(e.target.value)}}  placeholder="Describe Vehicle Type:"/>
+      </div>
+
       <div className="reasoninput">
-      <textarea className="centerreason" style={divStyle} required onChange={(e) => { setReason(e.target.value)}}  placeholder="Reason for appointment:"/>
+      <textarea className="centerreason" style={divStyle} required onChange={(e) => { setReason(e.target.value)}}  placeholder="Describe Package Info:"/>
       </div>
 
        <div className="buttonsurround">

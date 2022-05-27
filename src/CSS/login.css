@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #3352de;
+  background-color: black;
 }
 .central-box {
   text-align: center;
@@ -31,14 +31,14 @@
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: skyblue;
+  background-color: #dc3545;
   border: none;
   border-radius: 15px;
   box-shadow: 0 8px #999;
 }
 
 .signintopage-registerintopage-buttons:hover {
-  background-color: #659eb5;
+  background-color: #dc3545;
 }
 
 .signintopage-registerintopage-buttons:active {

@@ -7,9 +7,9 @@ function AdminNav(){
 
 return(
   <div>
- <ReactBootStrap.Navbar bg="warning" expand="xl">
+ <ReactBootStrap.Navbar bg="danger" expand="xl">
   <ReactBootStrap.Container>
-    <ReactBootStrap.Navbar.Brand className="blahblah" href="/">Crowe Detailing</ReactBootStrap.Navbar.Brand>
+    <ReactBootStrap.Navbar.Brand className="blahblah" href="/">Crowe Detailing - ADMIN</ReactBootStrap.Navbar.Brand>
     <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
     <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
       <ReactBootStrap.Nav className="me-auto">

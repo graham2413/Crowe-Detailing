@@ -1,5 +1,5 @@
 body {
-background-color: #3352de;
+background-color: black;
 }
 .homebody {
     display: flex;
@@ -32,7 +32,7 @@ background-color: #3352de;
     text-decoration: none;
   }
   .eachTeach:hover{
-    color: black;
+    color: #dc3545;
   }
   .welcomeCSS{
     margin-top: 5%;
@@ -41,7 +41,7 @@ background-color: #3352de;
     width: 50%;
     padding: 5px;
     border-radius: 10px;
-    border: solid 4px;
+    border: solid 4px #dc3545;
     display: block;
     margin: auto;
     width: 75%;
@@ -56,14 +56,16 @@ background-color: #3352de;
     background-color: #EEEEEE;
     color: #333333;
     padding: 2px 6px 2px 6px;
-    border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-left: 1px solid #CCCCCC;  
+    border-radius: 10px;
+    border: 3px solid #dc3545;
     text-align: center;
     display: block;
     margin: auto;
     width: 75%;
+  }
+  .appointmentLB:hover{
+    background-color: #dc3545;
+    color: black;
   }
 
   .apps{
@@ -86,7 +88,7 @@ background-color: #3352de;
     padding: 5px;
     border-radius: 10px;
     margin: 0 0 15px 20px;
-    border: solid 4px;
+    border: solid 4px #dc3545;
   }
   .timecontainer{
     margin-bottom: 10px; 
@@ -114,7 +116,7 @@ text-align: center;
     padding: 17px;
     border-radius: 10px; 
      margin: auto; 
-     border: solid 4px; 
+     border: solid 4px #dc3545; 
      justify-content: center; 
      align-items: center;  
   }
@@ -149,6 +151,7 @@ text-align: center;
   .teacherthing{
     margin-top: 25px;
     text-align: center;
+    color: white;
   }
 
   .blahblah{
@@ -177,7 +180,7 @@ text-align: center;
     border-radius: 10px;
     margin: auto;
     margin-top: 10%;
-    border: solid 4px;
+    border: solid 4px #dc3545;
     font-size: 12px;
   }
   .textertexter{
@@ -189,7 +192,7 @@ text-align: center;
     border-radius: 10px;
     margin: auto;
     margin-top: 10%;
-    border: solid 4px;
+    border: solid 4px #dc3545;
     font-size: 12px;
   }
   .cancAppCont{
@@ -199,7 +202,7 @@ text-align: center;
     width: 50%;
     padding: 5px;
     border-radius: 10px;
-    border: solid 4px;
+    border: solid 4px #dc3545;
     display: block;
     margin: auto;
     width: 75%;
@@ -221,7 +224,7 @@ text-align: center;
     border-radius: 10px;
     margin: auto;
     margin-top: 10%;
-    border: solid 4px;
+    border: solid 4px #dc3545;
     font-size: 15px;
   }
 
