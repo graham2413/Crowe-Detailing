@@ -31,7 +31,8 @@ export default function InputAvailableTimes() {
   const [wednesday,setWednesday]=useState(false);
   const [thursday,setThursday]=useState(false);
   const [friday,setFriday]=useState(false);
-
+  const [saturday,setSaturday]=useState(false);
+  const [sunday,setSunday]=useState(false);
 
 
 function handleSubmit(e) {
@@ -54,6 +55,12 @@ function handleSubmit(e) {
   }
   if(friday===true){
     tempStr+= "5";
+  }
+  if(saturday===true){
+    tempStr+= "6";
+  }
+  if(sunday===true){
+    tempStr+= "0";
   }
 // add days to db
   const dayRef = db.ref("Users/" + currentUser.uid + "/availableHours/daysToInclude");
@@ -109,11 +116,13 @@ const newstartandend = startandend;
     </div>
 
     <div className="checkcontainer" required>
+    <input type="checkbox" onChange={(e)=>setSunday(e.target.checked)}/> Sunday<br></br>
     <input type="checkbox" onChange={(e)=>setMonday(e.target.checked)}/> Monday<br></br>
     <input type="checkbox" onChange={(e)=>setTuesday(e.target.checked)}/> Tuesday<br></br>
     <input type="checkbox" onChange={(e)=>setWednesday(e.target.checked)}/> Wednesday<br></br>
     <input type="checkbox" onChange={(e)=>setThursday(e.target.checked)}/> Thursday<br></br>
     <input type="checkbox" onChange={(e)=>setFriday(e.target.checked)}/> Friday<br></br>
+    <input type="checkbox" onChange={(e)=>setSaturday(e.target.checked)}/> Saturday<br></br>
     </div>
 
     <div className="submitcont">

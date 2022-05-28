@@ -165,16 +165,21 @@ useEffect(() => {
 
 // taking teacher input of available days
 const weekObj={
+  sunday:0,
   monday:1,
   tuesday:2,
   wednesday:3,
   thursday:4,
-  friday:5
+  friday:5,
+  saturday:6
   };
   
   for (let index = 0; index < dayStrFinal.length; index++) {
   
-    if(dayStrFinal[index]===("1")){
+    if(dayStrFinal[index]===("0")){
+      weekObj.sunday= null;
+    }
+    else if(dayStrFinal[index]===("1")){
       weekObj.monday= null;
     }
    else if(dayStrFinal[index]===("2")){
@@ -189,6 +194,10 @@ const weekObj={
     else if(dayStrFinal[index]===("5")){
       weekObj.friday= null;
     }
+    else if(dayStrFinal[index]===("6")){
+      weekObj.saturday= null;
+    }
+    
     else{
       continue;
     }
@@ -199,7 +208,7 @@ const isWeekday = (date) => {
 
   const day = date.getDay();
 
-  return day!==0 && day!==6 && day!==weekObj.monday && day!==weekObj.tuesday && day!==weekObj.wednesday && day!==weekObj.thursday && day!==weekObj.friday;
+  return day!==weekObj.sunday && day!==weekObj.monday && day!==weekObj.tuesday && day!==weekObj.wednesday && day!==weekObj.thursday && day!==weekObj.friday && day!==weekObj.saturday;
 };
 
 
@@ -248,7 +257,7 @@ const handleSubmit = (event) => {
        }  
 
     alert("Confirmed booking for: " + value);
-    alert("Address for appointment: ")
+    alert("Address for appointment: 319 Hayat Loop")
     routeChangeOff();
   }
   catch (error) {
