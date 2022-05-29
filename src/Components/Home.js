@@ -109,19 +109,18 @@ function Home() {
           <div className="homebody">
         <div>  <Link to={`/inputAvailability`} className="appointmentLB">Change/Set your Available times here</Link> </div>      </div> <br></br><br></br>
           <Link to={`/inputAnnouncements`} className="appointmentLB">Change announcements here</Link>
-
-        
-
-
         </div>
+
         ) : (
           <div>
           <RegularNav />
           <br></br>
           <div className="welcomeCSS">
             <h1>Welcome to Crowe Detailing, {teacherName}</h1>
+       
        <div className="statementdiv">     We are a student owned and operated auto-detailing company in Oxford, MS. Our mission is to transform your vehicle to your likings using safe techniques and industry-leading products. Book your appointment today!</div>
-            <a href="https://instagram.com/crowe.detailing?igshid=YmMyMTA2M2Y="> Follow us on instagram!</a>
+       <div className="venmo"><a href="https://account.venmo.com/u/zouboo">Pay Here</a></div>
+          <div className="insta">  <a href="https://instagram.com/crowe.detailing?igshid=YmMyMTA2M2Y="> Follow us on instagram!</a> </div>
             </div>
           
           <div className="homebody">

@@ -261,3 +261,20 @@ text-align: center;
     margin-left: 3px;
     margin-top: 5%;
   }
+  .venmo{
+    display: inline-block;
+    font-weight: 900;
+    font-size: 20px;
+    margin-right: 40%;
+  }
+  .insta{
+    display: inline-block;
+    font-weight: 900;
+    font-size: 17px;
+  }
+  
+  @media only screen and (max-width: 425px) {
+    .venmo{
+      margin-right: 10%;
+    }
+  }
