@@ -207,6 +207,14 @@ text-align: center;
     margin: auto;
     width: 75%;
   }
+  .cancAppCont ol{
+    list-style-type: none;
+  }
+  .cancellation{
+    font-weight: 900;
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
   p{
     font-weight: 600;
     text-decoration: underline;

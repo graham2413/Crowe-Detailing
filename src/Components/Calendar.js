@@ -85,7 +85,7 @@ function Calendar() {
           
     
         } else {
-          console.log("No bookings in db for this teacher");
+          console.log("No bookings in db for this worker");
         }
     });
   });
@@ -163,7 +163,7 @@ useEffect(() => {
     }
 
 
-// taking teacher input of available days
+// taking worker input of available days
 const weekObj={
   sunday:0,
   monday:1,
@@ -203,7 +203,7 @@ const weekObj={
     }
   }
 
-// determines which days are available by teacher input
+// determines which days are available by worker input
 const isWeekday = (date) => {
 
   const day = date.getDay();
@@ -219,9 +219,6 @@ const handleSubmit = (event) => {
 
   const timeRef = db.ref("Users/" + currentUser.uid + "/bookedTimes/" + handle);
  
-  const teacherRef = db.ref("Users/" + handle + "/bookedTimes");
-
-
   try{
 
      var booking = String(value);
@@ -257,7 +254,7 @@ const handleSubmit = (event) => {
        }  
 
     alert("Confirmed booking for: " + value);
-    alert("Address for appointment: 319 Hayat Loop")
+    alert("Thank you for booking your appointment, please text 601-988-5520 for address and other information.")
     routeChangeOff();
   }
   catch (error) {

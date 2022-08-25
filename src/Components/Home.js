@@ -60,8 +60,8 @@ function Home() {
                 }
             );
         });
-              }, [])
-    
+              }, [])   
+ 
 
     function cancRender() {
         
@@ -69,8 +69,7 @@ function Home() {
 
        return canc.map((element,index)=>{
           if(element!==null){
-            // console.log(element);
-            return <div><li>Your booking for {element} was cancelled.</li> <button onClick={() => clearNotif(element)}>Clear this notification</button></div>
+            return <div className="cancAppCont"> <div className="cancellation">CANCELLATION NOTICE</div><ol> <div><li>Your booking for {element} was cancelled.</li> <button onClick={() => clearNotif(element)}>Clear this notification</button></div></ol></div>
           }
         })
       }
@@ -126,18 +125,9 @@ function Home() {
           <div className="homebody">
           <Link to={`/workers`} className="appointmentLB">Schedule Appointment</Link>
             <br></br>  <br></br>
-            
-            
-            
+ 
             </div>
-            <div className="cancAppCont">
-           <p>  If an appointment has been cancelled, it is below</p>
-            
-            <ol>
             {cancRender()}
-            </ol>
-            </div>
-
         </div>
         )}
      
