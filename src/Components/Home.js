@@ -7,12 +7,37 @@ import React, { useState,useEffect,useContext } from 'react';
 import { AuthContext } from "../Auth";
 import AdminNav from "./AdminNav";
 import RegularNav from "./RegularNav";
-
+import ImageSlider from "./ImageSlider";
 
 function Home() {
   
   const history = useHistory();
   const dbRef = ref(getDatabase());
+  const [isMobile, setIsMobile] = useState(false)
+  const handleResize = () => {
+    if (window.innerWidth < 580) {
+        setIsMobile(true)
+    } else {
+        setIsMobile(false)
+    }
+  }
+  useEffect(() => {
+    window.addEventListener("resize", handleResize)
+  })
+
+  const slides = [
+    {url:'http://localhost:3000/201C7C14-EF8B-4BE8-8A96-E459C4AF0D4C.JPG',title:'Picture1'},
+    {url:'http://localhost:3000/842F8342-1264-4E6A-8D7B-CB58011A6231.JPG',title:'Picture2'},
+    {url:'http://localhost:3000/67253889701__9F7C48A1-65A3-441A-8DCE-F911706BD3AE.JPEG',title:'Picture3'},
+    {url:'http://localhost:3000/67388824160__1A74CC42-0F44-432D-A5DA-B9B3D77D8583.JPEG',title:'Picture4'},
+    {url:'http://localhost:3000/IMG_5762.JPEG',title:'Picture5'},
+    {url:'http://localhost:3000/67253888111__0B567B74-61D7-4CF4-B051-AA6755820949.JPEG',title:'Picture6'}
+  ]
+  const containerStyles={
+    width: isMobile?'300px':'500px',
+    height: isMobile?'200px':'280px',
+    margin: '0 auto',
+  }
 
   const [teacherName, setTeacherName]=useState(null);
   const { currentUser } = useContext(AuthContext);
@@ -25,6 +50,7 @@ function Home() {
     setCanc(state => [...state, [val]
     ]);
   }
+  
 
   useEffect(() => {
     get(child(dbRef, `Users/` + currentUser.uid + "/type")).then((snapshot) => {
@@ -121,12 +147,15 @@ function Home() {
        <div className="venmo"><a href="https://account.venmo.com/u/zouboo">Pay Here</a></div>
           <div className="insta">  <a href="https://instagram.com/crowe.detailing?igshid=YmMyMTA2M2Y="> Follow us on instagram!</a> </div>
             </div>
-          
+
           <div className="homebody">
           <Link to={`/workers`} className="appointmentLB">Schedule Appointment</Link>
             <br></br>  <br></br>
- 
             </div>
+            
+            <div style={containerStyles}>
+          <ImageSlider slides={slides}/>
+          </div>
             {cancRender()}
         </div>
         )}
