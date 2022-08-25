@@ -26,12 +26,12 @@ function Home() {
   })
 
   const slides = [
-    {url:'http://localhost:3000/201C7C14-EF8B-4BE8-8A96-E459C4AF0D4C.JPG',title:'Picture1'},
-    {url:'http://localhost:3000/842F8342-1264-4E6A-8D7B-CB58011A6231.JPG',title:'Picture2'},
-    {url:'http://localhost:3000/67253889701__9F7C48A1-65A3-441A-8DCE-F911706BD3AE.JPEG',title:'Picture3'},
-    {url:'http://localhost:3000/67388824160__1A74CC42-0F44-432D-A5DA-B9B3D77D8583.JPEG',title:'Picture4'},
-    {url:'http://localhost:3000/IMG_5762.JPEG',title:'Picture5'},
-    {url:'http://localhost:3000/67253888111__0B567B74-61D7-4CF4-B051-AA6755820949.JPEG',title:'Picture6'}
+    {url:'https://crowe-detailing.web.app/201C7C14-EF8B-4BE8-8A96-E459C4AF0D4C.JPG',title:'Picture1'},
+    {url:'https://crowe-detailing.web.app/842F8342-1264-4E6A-8D7B-CB58011A6231.JPG',title:'Picture2'},
+    {url:'https://crowe-detailing.web.app/67253889701__9F7C48A1-65A3-441A-8DCE-F911706BD3AE.JPEG',title:'Picture3'},
+    {url:'https://crowe-detailing.web.app/67388824160__1A74CC42-0F44-432D-A5DA-B9B3D77D8583.JPEG',title:'Picture4'},
+    {url:'https://crowe-detailing.web.app/IMG_5762.JPEG',title:'Picture5'},
+    {url:'https://crowe-detailing.web.app/67253888111__0B567B74-61D7-4CF4-B051-AA6755820949.JPEG',title:'Picture6'}
   ]
   const containerStyles={
     width: isMobile?'300px':'500px',
